@@ -13,15 +13,17 @@ class GoogleSearchSpec extends GebSpec {
         at GoogleTopPage
     }
 
-    def "検索結果ページに遷移する"() {
-        when:
+    def "ヤフーと入力して検索すると結果ページに遷移する"() {
+        given:
+        def queryWord = "ヤフー"
         to GoogleTopPage
 
-        and:
-        searchTextBox.value("ヤフー")
+        when:
+        searchTextBox.value(queryWord)
         searchButton.click()
 
         then:
         at GoogleSerchResultPage
+        title.startsWith(queryWord)
     }
 }
