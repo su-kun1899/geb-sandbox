@@ -100,11 +100,13 @@
                     </dependency>
                 </dependencies>
             </plugin>
+            <!-- `${basedir}/drivers` にドライバーをインストールしてくれる -->
             <plugin>
                 <groupId>com.github.webdriverextensions</groupId>
                 <artifactId>webdriverextensions-maven-plugin</artifactId>
                 <version>3.1.1</version>
                 <executions>
+                    <!-- driverがあれば別にインストールはしなくていよい -->
                     <execution>
                         <goals>
                             <goal>install-drivers</goal>
