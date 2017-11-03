@@ -7,5 +7,9 @@ import geb.Page
  */
 class GoogleTopPage extends Page {
     static url = "https://www.google.co.jp/"
-    static at = { title == "Google"}
+    static at = { title == "Google" }
+    static content = {
+        searchTextBox { $("input", type: "text", name: "q") }
+        searchButton { $("input", type: "submit", name: "btnK") }
+    }
 }
