@@ -7,7 +7,10 @@ import geb.spock.GebSpec
  */
 class GoogleSearchSpec extends GebSpec {
     def "Googleのトップページを表示する"() {
-        expect:
-        1 == 1
+        when:
+        to GoogleTopPage
+
+        then:
+        at GoogleTopPage
     }
 }
