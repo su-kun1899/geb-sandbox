@@ -23,7 +23,7 @@ class GoogleSearchSpec extends GebSpec {
         searchButton.click()
 
         then:
-        at GoogleSerchResultPage
+        at GoogleSearchResultPage
         title.startsWith(queryWord)
     }
 }
