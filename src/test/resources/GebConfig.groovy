@@ -5,6 +5,7 @@
 */
 import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.chrome.ChromeDriverService
+import org.openqa.selenium.chrome.ChromeOptions
 import org.openqa.selenium.os.ExecutableFinder
 
 import static org.apache.commons.lang3.SystemUtils.IS_OS_LINUX
@@ -32,7 +33,12 @@ driver = {
     ChromeDriverService.Builder serviceBuilder = new ChromeDriverService.Builder()
             .usingAnyFreePort()
             .usingDriverExecutable(findDriverExecutable())
-    new ChromeDriver(serviceBuilder.build())
+    def options = new ChromeOptions()
+    // secret mode
+    options.addArguments('--incognito')
+    // headless mode
+    options.addArguments('--headless')
+    new ChromeDriver(serviceBuilder.build(), options)
 }
 
 //noinspection GroovyUnusedAssignment
