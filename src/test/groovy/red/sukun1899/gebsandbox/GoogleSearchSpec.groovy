@@ -19,11 +19,10 @@ class GoogleSearchSpec extends GebSpec {
         to GoogleTopPage
 
         when:
-        searchTextBox.value(queryWord)
-        searchButton.click()
+        search queryWord
 
         then:
         at GoogleSearchResultPage
-        title.startsWith(queryWord)
+        title.startsWith queryWord
     }
 }

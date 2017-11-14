@@ -11,6 +11,14 @@ class GoogleTopPage extends Page {
     static at = { title == "Google" }
     static content = {
         searchTextBox { $("input", type: "text", name: "q") }
-        searchButton { $("input", type: "submit", name: "btnK") }
+        searchButton { $("#sbtc > div.gstl_0.sbdd_a > div:nth-child(2) > div.sbdd_b > div > ul > li:nth-child(9) > div > span:nth-child(1) > span > input") }
+    }
+
+    void search(String query) {
+        searchTextBox.value(query)
+        interact {
+            moveToElement searchButton
+        }
+        searchButton.click()
     }
 }
